@@ -17,4 +17,7 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Onboarding.Domain\Onboarding.Domain.csproj" />
+  </ItemGroup>
 </Project>
