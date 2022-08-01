@@ -10,4 +10,10 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Onboarding.Application\Onboarding.Application.csproj" />
+    <ProjectReference Include="..\..\Common\Onboarding.Domain\Onboarding.Domain.csproj" />
+    <ProjectReference Include="..\..\Common\Onboarding.Infrastructure\Onboarding.Infrastructure.csproj" />
+  </ItemGroup>
 </Project>

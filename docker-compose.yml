@@ -11,3 +11,21 @@ services:
       MSSQL_PID: Express
     volumes:
       - sqlservervolume:/var/opt/mssql
+
+    API:
+      environment:
+      ConnectionString: ${ConnectionString}
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://*:8080
+      build:
+        context: .
+        dockerfile: Apps/Onboarding.API/Dockerfile
+      ports:
+        - 8080:8080
+
+    Worker:
+      environment:
+        ConnectionString: ${ConnectionString}
+      build:
+        context: .
+        dockerfile: Apps/Onboarding.Worker/Dockerfile
