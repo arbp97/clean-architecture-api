@@ -1,3 +1,5 @@
+using Onboarding.Domain.Enums;
+
 namespace Onboarding.Domain.Entities
 {
     public class Order
@@ -6,7 +8,7 @@ namespace Onboarding.Domain.Entities
         public int Number { get; set; }
         public string Cicle { get; set; }
         public int InternalContractCode { get; set; }
-        public int Status { get; set; }
+        public OrderStatus Status { get; set; }
         public string Account { get; set; }
         public DateTime CreatedAt { get; set; }
     }
