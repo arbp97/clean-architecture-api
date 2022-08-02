@@ -6,7 +6,7 @@ namespace Onboarding.Infrastructure.Repository
     {
         Task<Order> GetOrderById(Guid id);
         Task<IEnumerable<Order>> GetAllOrders();
-        Task<Order> AddOrder(Order order);
+        Task<Order> CreateOrder(Order order);
         Task<Order> UpdateOrder(Order order);
     }
 }

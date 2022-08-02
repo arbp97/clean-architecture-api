@@ -23,7 +23,7 @@ namespace Onboarding.Infrastructure.Repository
             return await _context.Orders.ToListAsync();
         }
 
-        public async Task<Order> AddOrder(Order order)
+        public async Task<Order> CreateOrder(Order order)
         {
             var task = await _context.Orders.AddAsync(order);
             await _context.SaveChangesAsync();
