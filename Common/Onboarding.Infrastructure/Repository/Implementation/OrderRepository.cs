@@ -25,16 +25,16 @@ namespace Onboarding.Infrastructure.Repository
 
         public async Task<Order> AddOrder(Order order)
         {
-            _context.Orders.Add(order);
-            _context.SaveChanges();
-            return await Task.FromResult(order);
+            var task = await _context.Orders.AddAsync(order);
+            await _context.SaveChangesAsync();
+            return task.Entity;
         }
 
         public async Task<Order> UpdateOrder(Order order)
         {
             _context.Entry(order).State = EntityState.Modified;
-            _context.SaveChanges();
-            return await Task.FromResult(order);
+            await _context.SaveChangesAsync();
+            return order;
         }
     }
 }
