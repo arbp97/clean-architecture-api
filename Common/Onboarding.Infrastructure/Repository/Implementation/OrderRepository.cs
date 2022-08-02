@@ -31,10 +31,6 @@ namespace Onboarding.Infrastructure.Repository
                 await _context.SaveChangesAsync();
                 return task.Entity;
             }
-            catch (DbUpdateException)
-            {
-                throw;
-            }
             catch (OperationCanceledException)
             {
                 throw;

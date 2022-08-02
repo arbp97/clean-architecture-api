@@ -1,16 +1,19 @@
 using MediatR;
 using Onboarding.Infrastructure.Repository;
 using Onboarding.Domain.Enums;
+using Microsoft.Extensions.Logging;
 
 namespace Onboarding.Application.Request.Order
 {
     public class CreateOrderHandler : IRequestHandler<CreateOrderRequest, CreateOrderDto>
     {
         private readonly IOrderRepository _repository;
+        private readonly ILogger<CreateOrderHandler> _logger;
 
-        public CreateOrderHandler(IOrderRepository repository)
+        public CreateOrderHandler(IOrderRepository repository, ILogger<CreateOrderHandler> logger)
         {
             _repository = repository;
+            _logger = logger;
         }
 
         public async Task<CreateOrderDto> Handle(
@@ -32,13 +35,14 @@ namespace Onboarding.Application.Request.Order
             try
             {
                 var result = await _repository.CreateOrder(order);
-
-                return new CreateOrderDto { Id = result.Id };
+                _logger.LogInformation($"Order created: {result.ToString()}");
             }
-            catch (Exception)
+            catch (OperationCanceledException ex)
             {
-                throw;
+                _logger.LogError(ex, $"Error: {ex.Message}");
             }
+
+            return new CreateOrderDto { Id = order.Id };
         }
     }
 }
