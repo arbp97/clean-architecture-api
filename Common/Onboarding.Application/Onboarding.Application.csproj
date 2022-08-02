@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Onboarding.Domain\Onboarding.Domain.csproj" />
+    <ProjectReference Include="..\..\Common\Onboarding.Infrastructure\Onboarding.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

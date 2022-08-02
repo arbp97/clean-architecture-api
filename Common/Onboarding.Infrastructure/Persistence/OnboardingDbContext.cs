@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using Onboarding.Domain.Entities;
-using Onboarding.Domain.Enums;
 
 namespace Onboarding.Infrastructure.Persistence
 {
@@ -25,10 +24,7 @@ namespace Onboarding.Infrastructure.Persistence
 
                 entity.Property(e => e.Account).HasMaxLength(50);
 
-                entity
-                    .Property(e => e.Status)
-                    .HasColumnType("int")
-                    .HasDefaultValue(OrderStatus.CREATED);
+                entity.Property(e => e.Status).HasColumnType("int");
             });
         }
     }
