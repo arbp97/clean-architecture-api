@@ -14,7 +14,7 @@ services:
 
   api:
     environment:
-      ConnectionString: ${ConnectionString}
+      ConnectionString: ${OnboardingDB}
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_URLS: http://*:8080
     build:
@@ -27,7 +27,7 @@ services:
 
   worker:
     environment:
-      ConnectionString: ${ConnectionString}
+      ConnectionString: ${OnboardingDB}
     build:
       context: .
       dockerfile: Apps/Onboarding.Worker/Dockerfile

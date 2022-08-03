@@ -8,14 +8,13 @@ namespace Onboarding.Infrastructure
 {
     public static class ServiceConfiguration
     {
-        public static IServiceCollection AddServices(
+        public static IServiceCollection AddInfrastructureServices(
             this IServiceCollection services,
             IConfiguration configuration
         )
         {
             services.AddDbContext<OnboardingDbContext>(
-                options =>
-                    options.UseSqlServer(configuration.GetConnectionString("ConnectionString"))
+                options => options.UseSqlServer(Environment.GetEnvironmentVariable("OnboardingDB"))
             );
 
             services.AddTransient<IOrderRepository, OrderRepository>();
