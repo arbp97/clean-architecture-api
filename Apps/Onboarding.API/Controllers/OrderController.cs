@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Onboarding.Application.Request.Order;
+using Onboarding.Application.Results;
 using MediatR;
 
 namespace Onboarding.API.Controllers
@@ -19,11 +20,10 @@ namespace Onboarding.API.Controllers
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(CreateOrderDto))]
-        public async Task<ActionResult<CreateOrderDto>> CreateOrder(
-            [FromBody] CreateOrderRequest request
-        )
+        public async Task<IActionResult> CreateOrder([FromBody] CreateOrderRequest request)
         {
-            return await _mediator.Send(request);
+            var result = await _mediator.Send(request);
+            return new JsonResult(result.Entity) { StatusCode = (int)result.StatusCode };
         }
     }
 }

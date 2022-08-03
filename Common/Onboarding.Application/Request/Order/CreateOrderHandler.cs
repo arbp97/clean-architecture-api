@@ -1,11 +1,13 @@
 using MediatR;
 using Onboarding.Infrastructure.Repository;
 using Onboarding.Domain.Enums;
+using Onboarding.Application.Results;
 using Microsoft.Extensions.Logging;
 
 namespace Onboarding.Application.Request.Order
 {
-    public class CreateOrderHandler : IRequestHandler<CreateOrderRequest, CreateOrderDto>
+    public class CreateOrderHandler
+        : IRequestHandler<CreateOrderRequest, EntityResult<CreateOrderDto>>
     {
         private readonly IOrderRepository _repository;
         private readonly ILogger<CreateOrderHandler> _logger;
@@ -16,7 +18,7 @@ namespace Onboarding.Application.Request.Order
             _logger = logger;
         }
 
-        public async Task<CreateOrderDto> Handle(
+        public async Task<EntityResult<CreateOrderDto>> Handle(
             CreateOrderRequest request,
             CancellationToken cancellationToken
         )
@@ -36,13 +38,23 @@ namespace Onboarding.Application.Request.Order
             {
                 var result = await _repository.CreateOrder(order);
                 _logger.LogInformation($"Order created: {result.ToString()}");
+
+                return new EntityResult<CreateOrderDto>
+                {
+                    Entity = new CreateOrderDto { Id = order.Id },
+                    StatusCode = StatusCode.Created
+                };
             }
             catch (OperationCanceledException ex)
             {
                 _logger.LogError(ex, $"Error: {ex.Message}");
-            }
 
-            return new CreateOrderDto { Id = order.Id };
+                return new EntityResult<CreateOrderDto>
+                {
+                    Entity = new CreateOrderDto { Id = order.Id },
+                    StatusCode = StatusCode.ServiceUnavailable
+                };
+            }
         }
     }
 }
