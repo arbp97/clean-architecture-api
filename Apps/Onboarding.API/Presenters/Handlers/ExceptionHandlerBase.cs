@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Onboarding.API.Presenters
+namespace Onboarding.API.Presenters.Handlers
 {
     public class ExceptionHandlerBase
     {

@@ -1,8 +1,10 @@
 using Onboarding.API.Presenters;
+using Onboarding.API.Presenters.Handlers;
 using Onboarding.API.Filters;
 using Onboarding.Infrastructure;
 using Onboarding.Application;
 using FluentValidation;
+using Microsoft.Data.SqlClient;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +16,8 @@ builder.Services.AddControllers(
             new ApiExceptionFilterAttribute(
                 new Dictionary<Type, IExceptionHandler>
                 {
-                    { typeof(ValidationException), new ValidationExceptionHandler() }
+                    { typeof(ValidationException), new ValidationExceptionHandler() },
+                    { typeof(SqlException), new SqlExceptionHandler() }
                 }
             )
         )

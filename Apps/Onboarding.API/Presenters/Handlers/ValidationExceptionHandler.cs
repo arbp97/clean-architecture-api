@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using FluentValidation;
 using System.Text;
 
-namespace Onboarding.API.Presenters
+namespace Onboarding.API.Presenters.Handlers
 {
     public class ValidationExceptionHandler : ExceptionHandlerBase, IExceptionHandler
     {
