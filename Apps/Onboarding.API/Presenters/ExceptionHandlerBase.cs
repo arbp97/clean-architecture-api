@@ -13,8 +13,7 @@ namespace Onboarding.API.Presenters
             },
             {
                 StatusCodes.Status400BadRequest,
-                @"Request denied, client error detected (malformed request syntax, 
-                invalid request message framing, deceptive request routing)."
+                "Request denied, client error detected (invalid request format)."
             },
             {
                 StatusCodes.Status503ServiceUnavailable,
@@ -28,7 +27,7 @@ namespace Onboarding.API.Presenters
             {
                 Status = status,
                 Title = title,
-                Type = _types.ContainsKey(status) ? _types[status] : "",
+                Type = _types.ContainsKey(status) ? _types[status] : string.Empty,
                 Detail = detail
             };
 
