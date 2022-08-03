@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 using FluentValidation;
 using System.Text;
-using Onboarding.API.Presenters.Base;
 
 namespace Onboarding.API.Presenters
 {

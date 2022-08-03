@@ -33,28 +33,25 @@ namespace Onboarding.Application.Request.Order
             };
 
             order.Cicle = order.Id.ToString();
+            StatusCode statusCode = new StatusCode();
 
             try
             {
                 var result = await _repository.CreateOrder(order);
                 _logger.LogInformation($"Order created: {result.ToString()}");
-
-                return new EntityResult<CreateOrderDto>
-                {
-                    Entity = new CreateOrderDto { Id = order.Id },
-                    StatusCode = StatusCode.Created
-                };
+                statusCode = StatusCode.Created;
             }
             catch (OperationCanceledException ex)
             {
                 _logger.LogError(ex, $"Error: {ex.Message}");
-
-                return new EntityResult<CreateOrderDto>
-                {
-                    Entity = new CreateOrderDto { Id = order.Id },
-                    StatusCode = StatusCode.ServiceUnavailable
-                };
+                statusCode = StatusCode.ServiceUnavailable;
             }
+
+            return new EntityResult<CreateOrderDto>
+            {
+                Entity = new CreateOrderDto { Id = order.Id },
+                StatusCode = statusCode
+            };
         }
     }
 }

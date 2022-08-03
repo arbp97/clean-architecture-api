@@ -1,5 +1,5 @@
 using Onboarding.API.Presenters;
-using Onboarding.API.Presenters.Base;
+using Onboarding.API.Filters;
 using Onboarding.Infrastructure;
 using Onboarding.Application;
 using FluentValidation;
@@ -19,6 +19,8 @@ builder.Services.AddControllers(
             )
         )
 );
+
+builder.Services.AddScoped<IPresenter, Presenter>();
 
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);

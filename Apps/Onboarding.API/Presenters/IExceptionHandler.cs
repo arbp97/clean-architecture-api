@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace Onboarding.API.Presenters.Base
+namespace Onboarding.API.Presenters
 {
     public interface IExceptionHandler
     {

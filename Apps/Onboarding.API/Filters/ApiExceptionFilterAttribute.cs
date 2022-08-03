@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc.Filters;
-using Onboarding.API.Presenters.Base;
+using Onboarding.API.Presenters;
 
-namespace Onboarding.API.Presenters
+namespace Onboarding.API.Filters
 {
     public class ApiExceptionFilterAttribute : ExceptionFilterAttribute
     {
