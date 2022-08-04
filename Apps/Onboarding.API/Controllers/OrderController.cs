@@ -30,5 +30,15 @@ namespace Onboarding.API.Controllers
         {
             return _presenter.GetResultEntity(await _mediator.Send(request));
         }
+
+        [HttpGet]
+        [Route("{id:guid}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(GetOrderByIdDto))]
+        public async Task<IActionResult> GetOrderById([FromRoute] Guid id)
+        {
+            return _presenter.GetResultEntity(
+                await _mediator.Send(new GetOrderByIdRequest { Id = id })
+            );
+        }
     }
 }

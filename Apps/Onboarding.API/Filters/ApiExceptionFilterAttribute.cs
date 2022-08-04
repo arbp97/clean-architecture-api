@@ -26,7 +26,7 @@ namespace Onboarding.API.Filters
                     context,
                     StatusCodes.Status500InternalServerError,
                     "Unidentified server error occurred.",
-                    ""
+                    string.Empty
                 );
             }
 
