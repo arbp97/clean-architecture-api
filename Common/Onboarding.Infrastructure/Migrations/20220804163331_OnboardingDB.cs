@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Onboarding.Infrastructure.Migrations
 {
-    public partial class InitMigration : Migration
+    public partial class OnboardingDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,9 +14,9 @@ namespace Onboarding.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValueSql: "(newid())"),
-                    Number = table.Column<int>(type: "int", nullable: false),
+                    Number = table.Column<int>(type: "int", nullable: true),
                     Cicle = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    InternalContractCode = table.Column<int>(type: "int", nullable: false),
+                    InternalContractCode = table.Column<long>(type: "bigint", nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false),
                     Account = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "(getdate())")

@@ -12,8 +12,8 @@ using Onboarding.Infrastructure.Persistence;
 namespace Onboarding.Infrastructure.Migrations
 {
     [DbContext(typeof(OnboardingDbContext))]
-    [Migration("20220802005600_InitMigration")]
-    partial class InitMigration
+    [Migration("20220804163331_OnboardingDB")]
+    partial class OnboardingDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,10 +44,10 @@ namespace Onboarding.Infrastructure.Migrations
                         .HasColumnType("datetime")
                         .HasDefaultValueSql("(getdate())");
 
-                    b.Property<int>("InternalContractCode")
-                        .HasColumnType("int");
+                    b.Property<long>("InternalContractCode")
+                        .HasColumnType("bigint");
 
-                    b.Property<int>("Number")
+                    b.Property<int?>("Number")
                         .HasColumnType("int");
 
                     b.Property<int>("Status")

@@ -22,6 +22,8 @@ namespace Onboarding.Infrastructure.Persistence
 
                 entity.Property(e => e.Cicle).HasMaxLength(50);
 
+                entity.Property(e => e.InternalContractCode).HasColumnType("bigint");
+
                 entity.Property(e => e.Account).HasMaxLength(50);
 
                 entity.Property(e => e.Status).HasColumnType("int");
