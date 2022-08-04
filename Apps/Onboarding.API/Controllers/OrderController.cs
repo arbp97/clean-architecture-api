@@ -29,7 +29,7 @@ namespace Onboarding.API.Controllers
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(CreateOrderDto))]
         public async Task<IActionResult> CreateOrder([FromBody] CreateOrderRequest request)
         {
-            return _presenter.GetResultEntity(await _mediator.Send(request));
+            return _presenter.GetResult(await _mediator.Send(request));
         }
 
         [HttpGet]
@@ -37,9 +37,7 @@ namespace Onboarding.API.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(GetOrderByIdDto))]
         public async Task<IActionResult> GetOrderById([FromRoute] Guid id)
         {
-            return _presenter.GetResultEntity(
-                await _mediator.Send(new GetOrderByIdRequest { Id = id })
-            );
+            return _presenter.GetResult(await _mediator.Send(new GetOrderByIdRequest { Id = id }));
         }
     }
 }

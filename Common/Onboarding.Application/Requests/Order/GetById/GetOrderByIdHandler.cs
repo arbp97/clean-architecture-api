@@ -29,14 +29,13 @@ namespace Onboarding.Application.Requests.Order
             {
                 _logger.LogInformation($"Order not found: {request.Id}");
 
-                return new EntityResult<GetOrderByIdDto> { StatusCode = StatusCode.NotFound };
+                return new EntityResult<GetOrderByIdDto>("Order not found.", StatusCode.NotFound);
             }
 
             _logger.LogInformation($"Order fetched: {order!.Id}");
 
-            return new EntityResult<GetOrderByIdDto>
-            {
-                Entity = new GetOrderByIdDto
+            return new EntityResult<GetOrderByIdDto>(
+                new GetOrderByIdDto
                 {
                     Id = order.Id,
                     Number = order.Number.HasValue ? order.Number.Value : null,
@@ -46,8 +45,8 @@ namespace Onboarding.Application.Requests.Order
                     Account = order.Account,
                     CreatedAt = order.CreatedAt
                 },
-                StatusCode = StatusCode.Ok
-            };
+                StatusCode.Ok
+            );
         }
     }
 }

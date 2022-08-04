@@ -38,11 +38,10 @@ namespace Onboarding.Application.Requests.Order
 
             _logger.LogInformation($"Order created: {result.ToString()}");
 
-            return new EntityResult<CreateOrderDto>
-            {
-                Entity = new CreateOrderDto { Id = order.Id },
-                StatusCode = StatusCode.Created
-            };
+            return new EntityResult<CreateOrderDto>(
+                new CreateOrderDto { Id = order.Id },
+                StatusCode.Created
+            );
         }
     }
 }
