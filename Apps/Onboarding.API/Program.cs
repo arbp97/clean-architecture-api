@@ -5,6 +5,7 @@ using Onboarding.Infrastructure;
 using Onboarding.Application;
 using FluentValidation;
 using Microsoft.Data.SqlClient;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,7 +31,23 @@ builder.Services.AddInfrastructureServices(builder.Configuration);
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc(
+        "v1",
+        new OpenApiInfo
+        {
+            Version = "v1",
+            Title = "Andreani Onboarding API",
+            Description = "An ASP.NET Core Web API using Clean Architecture.",
+            Contact = new OpenApiContact
+            {
+                Name = "Alan Blangille",
+                Url = new Uri("https://arbp97.github.io")
+            }
+        }
+    );
+});
 
 var app = builder.Build();
 
@@ -38,7 +55,11 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+        options.RoutePrefix = string.Empty;
+    });
 }
 
 app.UseHttpsRedirection();

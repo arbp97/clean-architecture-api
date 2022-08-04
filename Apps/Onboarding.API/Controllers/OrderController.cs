@@ -7,6 +7,7 @@ namespace Onboarding.API.Controllers
 {
     [Route("api/pedido")]
     [ApiController]
+    [Produces("application/json")]
     public class OrderController : ControllerBase
     {
         private readonly ILogger<OrderController> _logger;
