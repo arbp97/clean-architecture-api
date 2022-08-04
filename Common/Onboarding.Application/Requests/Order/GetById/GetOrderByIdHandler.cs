@@ -35,7 +35,7 @@ namespace Onboarding.Application.Requests.Order
                     Number = order.Number.Value,
                     Cicle = order.Cicle,
                     InternalContractCode = order.InternalContractCode,
-                    Status = Enum.GetName(typeof(StatusCode), order.Status) ?? string.Empty,
+                    Status = Enum.GetName(typeof(OrderStatus), order.Status) ?? string.Empty,
                     Account = order.Account,
                     CreatedAt = order.CreatedAt
                 },
