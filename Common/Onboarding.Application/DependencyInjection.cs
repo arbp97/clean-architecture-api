@@ -12,6 +12,7 @@ namespace Onboarding.Application
         {
             services.AddMediatR(typeof(CreateOrderHandler));
             services.AddValidatorsFromAssembly(typeof(CreateOrderValidator).Assembly);
+            services.AddValidatorsFromAssembly(typeof(GetOrderByIdValidator).Assembly);
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
 
             return services;

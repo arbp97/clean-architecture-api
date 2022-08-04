@@ -24,7 +24,7 @@ namespace Onboarding.Application.Requests.Order
         )
         {
             // Null fields are populated on DB insert (see OnboardingDbContext)
-            Domain.Entities.Order order = new Domain.Entities.Order
+            var order = new Domain.Entities.Order
             {
                 Id = Guid.NewGuid(),
                 Account = request.Account,

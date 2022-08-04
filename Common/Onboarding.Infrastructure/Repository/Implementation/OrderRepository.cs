@@ -25,16 +25,9 @@ namespace Onboarding.Infrastructure.Repository
 
         public async Task<Order> CreateOrder(Order order)
         {
-            try
-            {
-                var task = await _context.Orders.AddAsync(order);
-                await _context.SaveChangesAsync();
-                return task.Entity;
-            }
-            catch (OperationCanceledException)
-            {
-                throw;
-            }
+            var task = await _context.Orders.AddAsync(order);
+            await _context.SaveChangesAsync();
+            return task.Entity;
         }
 
         public async Task<Order> UpdateOrder(Order order)
