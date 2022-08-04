@@ -1,4 +1,4 @@
-namespace Onboarding.Application.Request.Order
+namespace Onboarding.Application.Requests.Order
 {
     public class CreateOrderDto
     {
