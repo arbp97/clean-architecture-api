@@ -5,7 +5,7 @@ namespace Onboarding.Application.Requests.Order
 {
     public class CreateOrderRequest : IRequest<EntityResult<CreateOrderDto>>
     {
-        public string Account { get; set; }
+        public string? Account { get; set; }
         public int InternalContractCode { get; set; }
     }
 }

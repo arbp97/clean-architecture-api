@@ -25,7 +25,14 @@ namespace Onboarding.Application.Requests.Order
         {
             var order = await _repository.GetOrderById(request.Id);
 
-            _logger.LogInformation($"Order fetched: {order.Id}");
+            if (order is null)
+            {
+                _logger.LogInformation($"Order not found: {request.Id}");
+
+                return new EntityResult<GetOrderByIdDto> { StatusCode = StatusCode.NotFound };
+            }
+
+            _logger.LogInformation($"Order fetched: {order!.Id}");
 
             return new EntityResult<GetOrderByIdDto>
             {
