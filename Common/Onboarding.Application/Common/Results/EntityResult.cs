@@ -1,3 +1,5 @@
+using Onboarding.Domain.Enums;
+
 namespace Onboarding.Application.Results
 {
     public class EntityResult<T> where T : class

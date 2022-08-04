@@ -1,4 +1,4 @@
-namespace Onboarding.Application.Results
+namespace Onboarding.Domain.Enums
 {
     public enum StatusCode
     {
