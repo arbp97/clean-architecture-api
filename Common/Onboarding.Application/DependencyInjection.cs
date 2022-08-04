@@ -3,6 +3,7 @@ using Onboarding.Application.Requests.Order;
 using Onboarding.Application.Behaviours;
 using Microsoft.Extensions.DependencyInjection;
 using FluentValidation;
+using System.Reflection;
 
 namespace Onboarding.Application
 {
@@ -10,8 +11,7 @@ namespace Onboarding.Application
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
-            services.AddMediatR(typeof(CreateOrderHandler));
-            services.AddMediatR(typeof(GetOrderByIdHandler));
+            services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddValidatorsFromAssembly(typeof(CreateOrderValidator).Assembly);
             services.AddValidatorsFromAssembly(typeof(GetOrderByIdValidator).Assembly);
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));

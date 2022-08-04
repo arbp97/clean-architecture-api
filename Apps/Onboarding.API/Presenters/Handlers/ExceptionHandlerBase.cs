@@ -9,15 +9,15 @@ namespace Onboarding.API.Presenters.Handlers
         {
             {
                 StatusCodes.Status500InternalServerError,
-                "Internal server error occurred, please contact the developer."
+                "https://datatracker.ietf.org/doc/html/rfc7231#section-6.6.1"
             },
             {
                 StatusCodes.Status400BadRequest,
-                "Request denied, client error detected (invalid request format)."
+                "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.1"
             },
             {
                 StatusCodes.Status503ServiceUnavailable,
-                "Server is currently unavailable, please try again later."
+                "https://datatracker.ietf.org/doc/html/rfc7231#section-6.6.4"
             }
         };
 

@@ -22,11 +22,13 @@ namespace Onboarding.API.Filters
             }
             else
             {
+                Console.WriteLine(context.Exception.StackTrace);
+
                 new ExceptionHandlerBase().SetResult(
                     context,
                     StatusCodes.Status500InternalServerError,
                     "Unidentified server error occurred.",
-                    string.Empty
+                    $"{context.Exception.Message}"
                 );
             }
 

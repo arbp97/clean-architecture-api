@@ -23,7 +23,7 @@ builder.Services.AddControllers(
         )
 );
 
-builder.Services.AddScoped<IPresenter, Presenter>();
+builder.Services.AddTransient<IPresenter, Presenter>();
 
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);

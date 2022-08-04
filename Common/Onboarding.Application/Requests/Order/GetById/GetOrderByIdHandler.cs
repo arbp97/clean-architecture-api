@@ -25,14 +25,14 @@ namespace Onboarding.Application.Requests.Order
         {
             var order = await _repository.GetOrderById(request.Id);
 
-            _logger.LogInformation($"Order fetched: {order.ToString()}");
+            _logger.LogInformation($"Order fetched: {order.Id}");
 
             return new EntityResult<GetOrderByIdDto>
             {
                 Entity = new GetOrderByIdDto
                 {
                     Id = order.Id,
-                    Number = order.Number.Value,
+                    Number = order.Number.HasValue ? order.Number.Value : null,
                     Cicle = order.Cicle,
                     InternalContractCode = order.InternalContractCode,
                     Status = Enum.GetName(typeof(OrderStatus), order.Status) ?? string.Empty,

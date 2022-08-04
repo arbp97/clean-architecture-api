@@ -8,7 +8,7 @@ namespace Onboarding.Infrastructure.Persistence
         public OnboardingDbContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<OnboardingDbContext>();
-            optionsBuilder.UseSqlServer(Environment.GetEnvironmentVariable("OnboardingDB"));
+            optionsBuilder.UseSqlServer(Environment.GetEnvironmentVariable("OnboardingDBLocal"));
 
             return new OnboardingDbContext(optionsBuilder.Options);
         }
