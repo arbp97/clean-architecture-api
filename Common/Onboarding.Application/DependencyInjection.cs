@@ -1,5 +1,5 @@
 using MediatR;
-using Onboarding.Application.Requests.Order;
+using Onboarding.Application.Requests.Orders;
 using Onboarding.Application.Behaviours;
 using Microsoft.Extensions.DependencyInjection;
 using FluentValidation;

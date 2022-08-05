@@ -1,7 +1,7 @@
 using MediatR;
 using Onboarding.Application.Results;
 
-namespace Onboarding.Application.Requests.Order
+namespace Onboarding.Application.Requests.Orders
 {
     public class GetOrderByIdRequest : IRequest<EntityResult<GetOrderByIdDto>>
     {

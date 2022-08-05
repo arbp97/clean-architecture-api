@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace Onboarding.Application.Requests.Order
+namespace Onboarding.Application.Requests.Orders
 {
     public class CreateOrderValidator : AbstractValidator<CreateOrderRequest>
     {

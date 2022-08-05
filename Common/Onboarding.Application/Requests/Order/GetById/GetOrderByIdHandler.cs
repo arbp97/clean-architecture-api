@@ -4,7 +4,7 @@ using Onboarding.Domain.Enums;
 using Onboarding.Application.Results;
 using Microsoft.Extensions.Logging;
 
-namespace Onboarding.Application.Requests.Order
+namespace Onboarding.Application.Requests.Orders
 {
     public class GetOrderByIdHandler
         : IRequestHandler<GetOrderByIdRequest, EntityResult<GetOrderByIdDto>>

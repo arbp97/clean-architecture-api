@@ -1,10 +1,11 @@
 using MediatR;
 using Onboarding.Infrastructure.Repository;
 using Onboarding.Domain.Enums;
+using Onboarding.Domain.Entities;
 using Onboarding.Application.Results;
 using Microsoft.Extensions.Logging;
 
-namespace Onboarding.Application.Requests.Order
+namespace Onboarding.Application.Requests.Orders
 {
     public class CreateOrderHandler
         : IRequestHandler<CreateOrderRequest, EntityResult<CreateOrderDto>>
@@ -24,7 +25,7 @@ namespace Onboarding.Application.Requests.Order
         )
         {
             // Null fields are populated on DB insert (see OnboardingDbContext)
-            var order = new Domain.Entities.Order
+            var order = new Order
             {
                 Id = Guid.NewGuid(),
                 Account = request.Account,

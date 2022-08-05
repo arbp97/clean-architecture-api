@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using Onboarding.Application.Requests.Order;
+using Onboarding.Application.Requests.Orders;
 using Onboarding.API.Presenters;
 using System.Net.Mime;
 using MediatR;
