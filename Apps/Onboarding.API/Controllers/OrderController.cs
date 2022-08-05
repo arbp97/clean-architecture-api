@@ -14,17 +14,11 @@ namespace Onboarding.API.Controllers
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public class OrderController : ControllerBase
     {
-        private readonly ILogger<OrderController> _logger;
         private readonly IMediator _mediator;
         private readonly IPresenter _presenter;
 
-        public OrderController(
-            ILogger<OrderController> logger,
-            IMediator mediator,
-            IPresenter presenter
-        )
+        public OrderController(IMediator mediator, IPresenter presenter)
         {
-            _logger = logger;
             _mediator = mediator;
             _presenter = presenter;
         }
