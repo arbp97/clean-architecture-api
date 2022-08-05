@@ -22,6 +22,7 @@ This solution was developed following the Clean Architecture software design dir
 │ ├───Onboarding.Domain  
 │ │ ├───Entities  
 │ │ ├───Enums  
+│ │ ├───Exceptions
 │ └───Onboarding.Infrastructure  
 │ ├───Migrations  
 │ ├───Persistence  
@@ -43,7 +44,7 @@ This solution was developed following the Clean Architecture software design dir
 
 3. In project root run docker <code>docker compose up -d</code> to build the containers.
 
-4. Navigate to Common/Onboarding.Infrastructure and run:
+4. Navigate to Common/Onboarding.Infrastructure and run: <br>
    <code>dotnet ef database update --startup-project ../../Apps/Onboarding.API/Onboarding.API.csproj</code>.
 
 5. Open your browser and go to localhost:8080/, you should see the API Swagger Docs.
