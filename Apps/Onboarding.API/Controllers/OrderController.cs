@@ -23,6 +23,9 @@ namespace Onboarding.API.Controllers
             _presenter = presenter;
         }
 
+        /// <summary>
+        /// Create a new order.
+        /// </summary>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(CreateOrderDto))]
         public async Task<IActionResult> CreateOrder([FromBody] CreateOrderRequest request)
@@ -30,6 +33,9 @@ namespace Onboarding.API.Controllers
             return _presenter.GetResult(await _mediator.Send(request));
         }
 
+        /// <summary>
+        /// Fetch an existing order.
+        /// </summary>
         [HttpGet]
         [Route("{id:guid}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(GetOrderByIdDto))]

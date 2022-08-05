@@ -43,7 +43,8 @@ builder.Services.AddSwaggerGen(options =>
             Contact = new OpenApiContact
             {
                 Name = "Alan Blangille",
-                Url = new Uri("https://arbp97.github.io")
+                Url = new Uri("https://arbp97.github.io"),
+                Email = "ablanguille@andreani.com"
             }
         }
     );
@@ -51,16 +52,18 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Add Swagger Documentation
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI(options =>
     {
-        options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "andreani-onboarding-api");
         options.RoutePrefix = string.Empty;
     });
 }
+
+// Configure the HTTP request pipeline.
 
 app.UseHttpsRedirection();
 
