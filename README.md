@@ -36,14 +36,14 @@ This solution was developed following the Clean Architecture software design dir
 
 ## Build and Run
 
-1. In project root run 'dotnet restore Onboarding.sln'.
+1. In project root run <code>dotnet restore Onboarding.sln</code>.
 
 2. Set an env variable named OnboardingDB with this string:
-   'Data Source=db,1433;Initial Catalog=OnboardingDB;Persist Security Info=true;TrustServerCertificate=true;User Id=sa;Password=Admin#1234;'.
+   > Data Source=db,1433;Initial Catalog=OnboardingDB;Persist Security Info=true;TrustServerCertificate=true;User Id=sa;Password=Admin#1234;
 
-3. In project root run docker 'docker compose up -d' to build the containers.
+3. In project root run docker <code>docker compose up -d</code> to build the containers.
 
 4. Navigate to Common/Onboarding.Infrastructure and run:
-   'dotnet ef database update --startup-project ../../Apps/Onboarding.API/Onboarding.API.csproj'.
+   <code>dotnet ef database update --startup-project ../../Apps/Onboarding.API/Onboarding.API.csproj</code>.
 
 5. Open your browser and go to localhost:8080/, you should see the API Swagger Docs.
