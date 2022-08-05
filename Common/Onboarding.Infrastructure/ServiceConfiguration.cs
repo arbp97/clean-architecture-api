@@ -13,8 +13,13 @@ namespace Onboarding.Infrastructure
             IConfiguration configuration
         )
         {
+            string dbConnectionString = Environment.GetEnvironmentVariable("ConnectionString");
+
+            if (string.IsNullOrEmpty(dbConnectionString))
+                dbConnectionString = configuration.GetConnectionString("DefaultConnection");
+
             services.AddDbContext<OnboardingDbContext>(
-                options => options.UseSqlServer(Environment.GetEnvironmentVariable("OnboardingDB"))
+                options => options.UseSqlServer(dbConnectionString)
             );
 
             services.AddTransient<IOrderRepository, OrderRepository>();
