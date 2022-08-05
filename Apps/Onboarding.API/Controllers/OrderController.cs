@@ -10,8 +10,7 @@ namespace Onboarding.API.Controllers
     [ApiController]
     [Produces(MediaTypeNames.Application.Json)]
     [Consumes(MediaTypeNames.Application.Json)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ProblemDetails))]
     public class OrderController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -39,6 +38,7 @@ namespace Onboarding.API.Controllers
         [HttpGet]
         [Route("{id:guid}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(GetOrderByIdDto))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetOrderById([FromRoute] Guid id)
         {
             return _presenter.GetResult(await _mediator.Send(new GetOrderByIdRequest { Id = id }));
