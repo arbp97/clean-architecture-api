@@ -3,6 +3,7 @@ using Onboarding.Infrastructure.Repository;
 using Onboarding.Domain.Enums;
 using Onboarding.Application.Results;
 using Microsoft.Extensions.Logging;
+using Onboarding.Domain.Exceptions;
 
 namespace Onboarding.Application.Requests.Orders
 {
@@ -29,7 +30,7 @@ namespace Onboarding.Application.Requests.Orders
             {
                 _logger.LogInformation($"Order not found: {request.Id}");
 
-                return new EntityResult<GetOrderByIdDto>("Order not found.", StatusCode.NotFound);
+                throw new NotFoundException("Order not found with requested id:", $"{request.Id}");
             }
 
             _logger.LogInformation($"Order fetched: {order!.Id}");

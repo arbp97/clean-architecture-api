@@ -3,6 +3,7 @@ using Onboarding.API.Presenters.Handlers;
 using Onboarding.API.Filters;
 using Onboarding.Infrastructure;
 using Onboarding.Application;
+using Onboarding.Domain.Exceptions;
 using FluentValidation;
 using Microsoft.Data.SqlClient;
 using Microsoft.OpenApi.Models;
@@ -18,7 +19,8 @@ builder.Services.AddControllers(
                 new Dictionary<Type, IExceptionHandler>
                 {
                     { typeof(ValidationException), new ValidationExceptionHandler() },
-                    { typeof(SqlException), new SqlExceptionHandler() }
+                    { typeof(SqlException), new SqlExceptionHandler() },
+                    { typeof(NotFoundException), new NotFoundExceptionHandler() }
                 }
             )
         )

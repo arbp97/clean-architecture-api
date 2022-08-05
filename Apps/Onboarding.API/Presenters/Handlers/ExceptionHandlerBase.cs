@@ -16,6 +16,10 @@ namespace Onboarding.API.Presenters.Handlers
                 "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.1"
             },
             {
+                StatusCodes.Status404NotFound,
+                "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.4"
+            },
+            {
                 StatusCodes.Status503ServiceUnavailable,
                 "https://datatracker.ietf.org/doc/html/rfc7231#section-6.6.4"
             }

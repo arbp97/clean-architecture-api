@@ -38,7 +38,7 @@ namespace Onboarding.API.Controllers
         [HttpGet]
         [Route("{id:guid}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(GetOrderByIdDto))]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ProblemDetails))]
         public async Task<IActionResult> GetOrderById([FromRoute] Guid id)
         {
             return _presenter.GetResult(await _mediator.Send(new GetOrderByIdRequest { Id = id }));
