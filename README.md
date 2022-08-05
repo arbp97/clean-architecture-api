@@ -22,7 +22,7 @@ This solution was developed following the Clean Architecture software design dir
 │ ├───Onboarding.Domain  
 │ │ ├───Entities  
 │ │ ├───Enums  
-│ │ ├───Exceptions
+│ │ ├───Exceptions   
 │ └───Onboarding.Infrastructure  
 │ ├───Migrations  
 │ ├───Persistence  
