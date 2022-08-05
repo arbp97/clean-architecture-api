@@ -1,13 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
 using Onboarding.Application.Requests.Order;
 using Onboarding.API.Presenters;
+using System.Net.Mime;
 using MediatR;
 
 namespace Onboarding.API.Controllers
 {
     [Route("api/pedido")]
     [ApiController]
-    [Produces("application/json")]
+    [Produces(MediaTypeNames.Application.Json)]
+    [Consumes(MediaTypeNames.Application.Json)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public class OrderController : ControllerBase
     {
         private readonly ILogger<OrderController> _logger;
