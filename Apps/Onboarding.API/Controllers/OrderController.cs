@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using Onboarding.Application.Requests.Orders;
 using Onboarding.API.Presenters;
 using System.Net.Mime;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using MediatR;
 
 namespace Onboarding.API.Controllers
@@ -29,7 +31,15 @@ namespace Onboarding.API.Controllers
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(CreateOrderDto))]
         public async Task<IActionResult> CreateOrder([FromBody] CreateOrderRequest request)
         {
-            return _presenter.GetResult(await _mediator.Send(request));
+            var result = _presenter.GetResult(await _mediator.Send(request));
+            JObject responseObject = JsonConvert.DeserializeObject<JObject>(
+                JsonConvert.SerializeObject(result)
+            );
+
+            var id = responseObject["Value"]["Id"];
+
+            Response.Headers.Add("location", $"{Request.Path}/{id}");
+            return result;
         }
 
         /// <summary>

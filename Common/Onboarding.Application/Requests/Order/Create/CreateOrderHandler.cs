@@ -37,7 +37,7 @@ namespace Onboarding.Application.Requests.Orders
 
             var result = await _repository.CreateOrder(order);
 
-            _logger.LogInformation($"Order created: {result.ToString()}");
+            _logger.LogInformation($"Order created: {result.Id}");
 
             return new EntityResult<CreateOrderDto>(
                 new CreateOrderDto { Id = order.Id },
