@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Onboarding.Domain", "Common
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Onboarding.Infrastructure", "Common\Onboarding.Infrastructure\Onboarding.Infrastructure.csproj", "{C53159D6-6AAF-4653-918C-4A1890DA1F03}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Onboarding.Application.Tests", "Tests\Onboarding.Application.Tests\Onboarding.Application.Tests.csproj", "{C6C71D4B-C87B-44DA-942D-BE621BB4E03C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{C53159D6-6AAF-4653-918C-4A1890DA1F03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C53159D6-6AAF-4653-918C-4A1890DA1F03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C53159D6-6AAF-4653-918C-4A1890DA1F03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6C71D4B-C87B-44DA-942D-BE621BB4E03C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6C71D4B-C87B-44DA-942D-BE621BB4E03C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6C71D4B-C87B-44DA-942D-BE621BB4E03C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6C71D4B-C87B-44DA-942D-BE621BB4E03C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
