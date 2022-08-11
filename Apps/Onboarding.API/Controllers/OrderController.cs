@@ -53,5 +53,15 @@ namespace Onboarding.API.Controllers
         {
             return _presenter.GetResult(await _mediator.Send(new GetOrderByIdRequest { Id = id }));
         }
+
+        /// <summary>
+        /// Fetch all existing orders.
+        /// </summary>
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<GetAllOrderDto>))]
+        public async Task<IActionResult> GetAllOrder()
+        {
+            return _presenter.GetResult(await _mediator.Send(new GetAllOrderRequest { }));
+        }
     }
 }
