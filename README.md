@@ -1,14 +1,9 @@
-# Introduction
-
-Onboarding backend challenge following this specs:
-[Specifications](https://github.com/architecture-it/onboarding-test)
-
 # Getting Started
 
 ## Project Structure
 
 This solution was developed following the Clean Architecture software design directives.
-[Clean Architecture](https://architecture-it.github.io/docs/CleanArchitecture/)
+[Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 
 ├───Apps # Startup Projects  
 │ ├───Onboarding.API  
